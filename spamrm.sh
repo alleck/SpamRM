@@ -11,10 +11,10 @@ echo -e "\033[0m"
 read -p "Please input search string: " searchs
 echo -e "\033[0m"
 echo -e "\033[35m"
-echo 'Searching for' '<'$searchs'>';
+echo 'Searching for' $searchs;
 echo -e "\033[36m"
 
-find /var/lib/spam-admin/Maildir/cur -type f -exec grep -Rl '<'$searchs'>' {} \; > /var/log/spamrmscan.log
+find /var/lib/spam-admin/Maildir/cur -type f -exec grep -Rl $searchs {} \; > /var/log/spamrmscan.log
 
 cat /var/log/spamrmscan.log | xargs rm -f
 
